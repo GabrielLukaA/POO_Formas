@@ -7,8 +7,8 @@ public class Quadrado extends Formas {
 
     public Quadrado(double lado) {
         this.lado = lado;
-        this.perimetro = this.lado * 4;
-        this.area = this.lado * this.lado;
+        this.setPerimetro(this.lado * 4);
+        this.setArea(this.lado * this.lado);
     }
 
     public static ArrayList<Quadrado> getQuadrados() {
@@ -28,11 +28,11 @@ public class Quadrado extends Formas {
 
     @Override
     public String toString() {
-        return "Quadrado{" +
-                ", area=" + area +
-                ", perimetro=" + perimetro +
-                ", lado=" + lado +
-                '}';
+        return "Quadrado: " + "\n" +
+                "Área: " + getArea() + "\n" +
+                "Perimetro: " + getPerimetro() + "\n" +
+                "Lado: " + lado + "\n\n";
+
     }
 
 }

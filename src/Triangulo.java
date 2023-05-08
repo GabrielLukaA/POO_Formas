@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Triangulo extends Formas {
-    static ArrayList<Triangulo> triangulos = new ArrayList<>();
+    private static ArrayList<Triangulo> triangulos = new ArrayList<>();
     private double ladoA;
     private double ladoB;
     private double ladoC;
@@ -11,6 +11,10 @@ public class Triangulo extends Formas {
         this.ladoA = ladoA;
         this.ladoB = ladoB;
         this.ladoC = ladoC;
+        String tipo = tipoTriangulo(ladoA, ladoB, ladoC);
+    }
+
+    public Triangulo() {
     }
 
     public boolean verificaTriangulo() {
@@ -44,12 +48,43 @@ public class Triangulo extends Formas {
 
     @Override
     public String toString() {
-        return "Triangulo{" +
-                "ladoA=" + ladoA +
-                ", ladoB=" + ladoB +
-                ", ladoC=" + ladoC +
-                ", area=" + area +
-                ", perimetro=" + perimetro +
-                '}';
+        return "Triangulo " + getTipo() + ":\n" +
+                "lado A: " + ladoA + "\n" +
+                "lado B: " + ladoB + "\n" +
+                "lado C: " + ladoC + "\n" +
+                "Area: " + getArea() + "\n" +
+                "Perimetro: " + getPerimetro() + "\n\n";
+    }
+
+    public double getLadoA() {
+        return ladoA;
+    }
+
+    public void setLadoA(double ladoA) {
+        this.ladoA = ladoA;
+    }
+
+    public double getLadoB() {
+        return ladoB;
+    }
+
+    public void setLadoB(double ladoB) {
+        this.ladoB = ladoB;
+    }
+
+    public double getLadoC() {
+        return ladoC;
+    }
+
+    public void setLadoC(double ladoC) {
+        this.ladoC = ladoC;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 }

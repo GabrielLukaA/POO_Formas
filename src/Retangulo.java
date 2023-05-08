@@ -8,8 +8,8 @@ public class Retangulo extends Formas {
     public Retangulo(double ladoA, double ladoB) {
         this.ladoA = ladoA;
         this.ladoB = ladoB;
-        this.perimetro = calculaPerimetro();
-        this.area = calculaArea();
+        this.setPerimetro(calculaPerimetro());
+        this.setArea(calculaArea());
     }
 
     public boolean verificaRetangulo() {
@@ -19,11 +19,11 @@ public class Retangulo extends Formas {
         return false;
     }
 
-    public double calculaArea() {
+    private double calculaArea() {
         return this.ladoA * this.ladoB;
     }
 
-    public double calculaPerimetro() {
+    private double calculaPerimetro() {
         return 2 * (this.ladoA + this.ladoB);
     }
 
@@ -49,5 +49,14 @@ public class Retangulo extends Formas {
 
     public static void setRetangulos(Retangulo retangulo) {
         Retangulo.retangulos.add(retangulo);
+    }
+
+    @Override
+    public String toString() {
+        return "Retangulo: " + "\n" +
+                "Lado A: " + ladoA + "\n" +
+                "Lado B: " + ladoB + "\n" +
+                "Área: " + getArea() + "\n" +
+                "Perimetro: " + getPerimetro() + "\n\n";
     }
 }
