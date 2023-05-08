@@ -1,2 +1,2 @@
-public class Isosceles extends Triangulo {
+public class Isosceles  {
 }

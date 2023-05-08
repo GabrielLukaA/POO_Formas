@@ -1,2 +1,2 @@
-public class Equilatero extends Triangulo {
+public class Equilatero {
 }

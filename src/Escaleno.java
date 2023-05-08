@@ -1,2 +1,2 @@
-public class Escaleno extends Triangulo{
+public class Escaleno {
 }
