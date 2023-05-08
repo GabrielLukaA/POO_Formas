@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main {
     private static Scanner sc = new Scanner(System.in);
     private static int i = 0;
-    static Professor professor = new Professor(123, "José");
+    static Professor professor = new Professor(123, "Romário.");
 
     public static void main(String[] args) {
 
@@ -60,27 +60,60 @@ public class Main {
                     int opcao = sc.nextInt();
                     switch (opcao) {
                         case 1:
+                            System.out.println("Informe o raio do circulo: ");
+                            Circulo novoCirculo = new Circulo(sc.nextDouble());
+                            if (novoCirculo.verificaCirculo()) {
+                                System.out.println("Circulo cadastrado.");
+                                Circulo.circulos.add(novoCirculo);
+                            } else {
+                                System.out.println("O raio é inferior ou igual a 0.");
+                            }
                             break;
                         case 2:
                             double[] lado = new double[3];
                             System.out.println("Informe o lado A:");
-                            lado[0] = sc.nextInt();
+                            lado[0] = sc.nextDouble();
                             System.out.println("Informe o lado B:");
-                            lado[1] = sc.nextInt();
+                            lado[1] = sc.nextDouble();
                             System.out.println("Informe o lado C:");
-                            lado[2] = sc.nextInt();
-                            Triangulo novoTriangulo = new Triangulo(lado[0],lado[1],lado[2]);
-                            if(novoTriangulo.verificaTriangulo(lado[0],lado[1],lado[2])){
-                                System.out.println("Triangulo cadastrado.");
-                                Triangulo.triangulos.add(novoTriangulo);
-                                System.out.println(Triangulo.triangulos);
+                            lado[2] = sc.nextDouble();
+                            Triangulo novoTriangulo = new Triangulo(lado[0], lado[1], lado[2]);
+                            if (novoTriangulo.verificaTriangulo()) {
+                                String tipo = Triangulo.tipoTriangulo(lado[0], lado[1], lado[2]);
+                                if (tipo == "Equilátero.") {
+
+                                } else if (tipo == "Isósceles") {
+
+                                } else {
+
+                                }
+                                System.out.println("Triângulo cadastrado.");
                             } else {
-                                System.out.println("Esses números não fazem um triangulo válido.");
+                                System.out.println("Esses números não formam um triângulo válido.");
                             }
                             break;
                         case 3:
+                            System.out.println("Informe o lado A: ");
+                            double ladoA = sc.nextDouble();
+                            System.out.println("Informe o lado B: ");
+                            double ladoB = sc.nextDouble();
+                            Retangulo novoRetangulo = new Retangulo(ladoA, ladoB);
+                            if (novoRetangulo.verificaRetangulo()) {
+                                System.out.println("Retângulo cadastrado.");
+                                Retangulo.setRetangulos(novoRetangulo);
+                            } else {
+                                System.out.println("Esses números não formam um retângulo válido.");
+                            }
                             break;
                         case 4:
+                            System.out.println("Informe o lado do quadrado: ");
+                            Quadrado novoQuadrado = new Quadrado(sc.nextDouble());
+                            if (novoQuadrado.verificaQuadrado()) {
+                                System.out.println("Quadrado cadastrado.");
+                                Quadrado.setQuadrados(novoQuadrado);
+                            } else {
+                                System.out.println("Esse número não forma um quadrado válido.");
+                            }
                             break;
                         default:
                             System.out.println("Número inválido.");
@@ -102,17 +135,25 @@ public class Main {
                     opcao = sc.nextInt();
                     switch (opcao) {
                         case 1:
+                            System.out.println(Circulo.getCirculos());
                             break;
                         case 2:
+                            System.out.println(Triangulo.getTriangulos());
                             break;
                         case 3:
+                            System.out.println(Retangulo.getRetangulos());
                             break;
                         case 4:
+                            System.out.println(Quadrado.getQuadrados());
                             break;
                         case 5:
+                            System.out.println(Quadrado.getQuadrados());
+                            System.out.println(Triangulo.getTriangulos());
+                            System.out.println(Circulo.getCirculos());
+                            System.out.println(Retangulo.getRetangulos());
                             break;
                         case 6:
-
+                            System.out.println("Voltando...\n");
                             break;
                         default:
                             System.out.println("Numero inválido");

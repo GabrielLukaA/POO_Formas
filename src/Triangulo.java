@@ -2,13 +2,10 @@ import java.util.ArrayList;
 
 public class Triangulo extends Formas {
     static ArrayList<Triangulo> triangulos = new ArrayList<>();
-
-    double ladoA;
-    double ladoB;
-    double ladoC;
-
-    double area;
-    double perimetro;
+    private double ladoA;
+    private double ladoB;
+    private double ladoC;
+    private String tipo;
 
     public Triangulo(double ladoA, double ladoB, double ladoC) {
         this.ladoA = ladoA;
@@ -16,35 +13,33 @@ public class Triangulo extends Formas {
         this.ladoC = ladoC;
     }
 
-    public boolean verificaTriangulo(double a, double b, double c) {
-        if (a + b > c || b + c > a || c + a > b) {
+    public boolean verificaTriangulo() {
+        double a = this.ladoA;
+        double b = this.ladoB;
+        double c = this.ladoC;
+        if (a + b > c && b + c > a && c + a > b) {
             return true;
         }
         return false;
     }
 
-    public double getLadoA() {
-        return ladoA;
+    public static String tipoTriangulo(double a, double b, double c) {
+
+        if (a == b && b == c) {
+            return "Equilátero";
+        } else if (a == b || b == c || a == c) {
+            return "Isósceles";
+        } else {
+            return "Escaleno";
+        }
     }
 
-    public void setLadoA(double ladoA) {
-        this.ladoA = ladoA;
+    public static void setTriangulos(Triangulo triangulo) {
+        Triangulo.triangulos.add(triangulo);
     }
 
-    public double getLadoB() {
-        return ladoB;
-    }
-
-    public void setLadoB(double ladoB) {
-        this.ladoB = ladoB;
-    }
-
-    public double getLadoC() {
-        return ladoC;
-    }
-
-    public void setLadoC(double ladoC) {
-        this.ladoC = ladoC;
+    public static ArrayList<Triangulo> getTriangulos() {
+        return triangulos;
     }
 
     @Override
