@@ -1,13 +1,10 @@
 import java.util.ArrayList;
 
 public class Isosceles extends Triangulo {
-    private static ArrayList<Isosceles> isosceles = new ArrayList<>();
     private double altura;
 
     public Isosceles(double a, double b, double c) {
-        this.setLadoA(a);
-        this.setLadoB(c);
-        this.setLadoC(c);
+        super( a,  b,  c);
         this.setTipo("Isósceles.");
         this.setArea(calculaArea());
         this.setPerimetro(calculaPerimetro());
@@ -43,15 +40,6 @@ public class Isosceles extends Triangulo {
         } else {
             return getLadoC() + (2 * getLadoA());
         }
-    }
-
-    public static ArrayList<Isosceles> getIsosceles() {
-        return isosceles;
-    }
-
-    public static void setIsosceles(Isosceles isosceles) {
-        Isosceles.isosceles.add(isosceles);
-        ;
     }
 
     @Override

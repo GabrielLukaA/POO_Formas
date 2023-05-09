@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Escaleno extends Triangulo {
-    private static ArrayList<Escaleno> escalenos = new ArrayList<>();
+
 
 
     public Escaleno(double a, double b, double c) {
@@ -24,13 +24,6 @@ public class Escaleno extends Triangulo {
         return getLadoA() + getLadoB() + getLadoC();
     }
 
-    public static ArrayList<Escaleno> getEscalenos() {
-        return escalenos;
-    }
 
-    public static void setEscaleno(Escaleno escaleno) {
-        Escaleno.escalenos.add(escaleno);
-        ;
-    }
 
 }

@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 public class Quadrado extends Formas {
 
-    private static ArrayList<Quadrado> quadrados = new ArrayList<>();
     private double lado;
 
     public Quadrado(double lado) {
@@ -11,13 +10,6 @@ public class Quadrado extends Formas {
         this.setArea(this.lado * this.lado);
     }
 
-    public static ArrayList<Quadrado> getQuadrados() {
-        return quadrados;
-    }
-
-    public static void setQuadrados(Quadrado quadrado) {
-        Quadrado.quadrados.add(quadrado);
-    }
 
     public boolean verificaQuadrado() {
         if (this.lado > 0) {

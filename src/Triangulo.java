@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Triangulo extends Formas {
-    private static ArrayList<Triangulo> triangulos = new ArrayList<>();
+
     private double ladoA;
     private double ladoB;
     private double ladoC;
@@ -11,11 +11,10 @@ public class Triangulo extends Formas {
         this.ladoA = ladoA;
         this.ladoB = ladoB;
         this.ladoC = ladoC;
-        String tipo = tipoTriangulo(ladoA, ladoB, ladoC);
+     //   String tipo = tipoTriangulo(ladoA, ladoB, ladoC);
     }
 
-    public Triangulo() {
-    }
+
 
     public boolean verificaTriangulo() {
         double a = this.ladoA;
@@ -38,13 +37,6 @@ public class Triangulo extends Formas {
         }
     }
 
-    public static void setTriangulos(Triangulo triangulo) {
-        Triangulo.triangulos.add(triangulo);
-    }
-
-    public static ArrayList<Triangulo> getTriangulos() {
-        return triangulos;
-    }
 
     @Override
     public String toString() {

@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
 public class Retangulo extends Formas {
-    static ArrayList<Retangulo> retangulos = new ArrayList<>();
     private double ladoA;
     private double ladoB;
 
@@ -43,13 +42,6 @@ public class Retangulo extends Formas {
         this.ladoA = ladoA;
     }
 
-    public static ArrayList<Retangulo> getRetangulos() {
-        return retangulos;
-    }
-
-    public static void setRetangulos(Retangulo retangulo) {
-        Retangulo.retangulos.add(retangulo);
-    }
 
     @Override
     public String toString() {

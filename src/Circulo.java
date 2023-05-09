@@ -1,15 +1,14 @@
 import java.util.ArrayList;
 
 public class Circulo extends Formas {
-    static ArrayList<Circulo> circulos = new ArrayList<>();
+
     private double raio;
-    private double diametro;
 
     public Circulo(double raio) {
         this.raio = raio;
-        this.diametro = raio * 2;
         this.setArea(calculaArea());
         this.setPerimetro(calculaPerimetro());
+        Formas.adicionarForma(this);
     }
 
     public boolean verificaCirculo() {
@@ -24,16 +23,10 @@ public class Circulo extends Formas {
     }
 
     private double calculaPerimetro() {
-        return 3.14 * this.diametro;
+        return 3.14 * (raio*2);
     }
 
-    public static ArrayList<Circulo> getCirculos() {
-        return circulos;
-    }
 
-    public static void setCirculos(Circulo circulo) {
-        Circulo.circulos.add(circulo);
-    }
 
     @Override
     public String toString() {
@@ -41,6 +34,6 @@ public class Circulo extends Formas {
                 "Raio: " + raio + "\n" +
                 "Área: " + getArea() + "\n" +
                 "Perimetro: " + getPerimetro() + "\n" +
-                "Diametro: " + diametro + "\n\n";
+                "Diametro: " + raio*2 + "\n\n";
     }
 }
