@@ -4,6 +4,7 @@ public class Equilatero extends Triangulo {
 
 
     public Equilatero(double a, double b, double c) {
+        super(a, b, c);
         this.setLadoA(a);
         this.setLadoB(c);
         this.setLadoC(c);
@@ -12,13 +13,9 @@ public class Equilatero extends Triangulo {
         this.setPerimetro(calculaPerimetro());
     }
 
-
-    private double calculaArea() {
+    @Override
+    public double calculaArea() {
         return Math.sqrt(3) / 4 * Math.pow(this.getLadoA(), 2);
-    }
-
-    private double calculaPerimetro() {
-        return getLadoA() * 3;
     }
 
 

@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Triangulo extends Formas {
+public abstract class Triangulo extends Formas {
 
     private double ladoA;
     private double ladoB;
@@ -11,32 +11,25 @@ public class Triangulo extends Formas {
         this.ladoA = ladoA;
         this.ladoB = ladoB;
         this.ladoC = ladoC;
-     //   String tipo = tipoTriangulo(ladoA, ladoB, ladoC);
+        //   String tipo = tipoTriangulo(ladoA, ladoB, ladoC);
     }
 
-
-
-    public boolean verificaTriangulo() {
-        double a = this.ladoA;
-        double b = this.ladoB;
-        double c = this.ladoC;
+    public static boolean verificaTriangulo(double a, double b, double c) {
         if (a + b > c && b + c > a && c + a > b) {
             return true;
         }
         return false;
     }
 
-    public static String tipoTriangulo(double a, double b, double c) {
-
+    public static Triangulo tipoTriangulo(double a, double b, double c) {
         if (a == b && b == c) {
-            return "Equilátero";
+            return new Equilatero(a, b, c);
         } else if (a == b || b == c || a == c) {
-            return "Isósceles";
+            return new Isosceles(a, b, c);
         } else {
-            return "Escaleno";
+            return new Escaleno(a, b, c);
         }
     }
-
 
     @Override
     public String toString() {
@@ -79,4 +72,11 @@ public class Triangulo extends Formas {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+
+
+    @Override
+    public double calculaPerimetro() {
+        return getLadoA() + getLadoB() + getLadoC();
+    }
+
 }

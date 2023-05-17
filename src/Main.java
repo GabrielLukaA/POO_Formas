@@ -5,9 +5,19 @@ public class Main {
     private static int i = 0;
     static Professor professor = new Professor(123, "Romário");
 
+
     public static void main(String[] args) {
 
 
+        // Formas forma2 = new Quadrado(3); == RUIM
+        //Quadrado forma3 = new Quadrado(4);
+
+        // forma2.calculaArea();
+        //forma3.calculaArea();
+
+        /*Instanciar um objeto forma geométrica na variável Quadrado
+        Quadrado quadrado = (Quadrado) forma2;
+         */
         do {
             login(professor);
         } while (true);
@@ -63,7 +73,7 @@ public class Main {
                             System.out.println("Informe o raio do circulo: ");
                             double raio = sc.nextDouble();
 
-                            if (raio>0) {
+                            if (raio > 0) {
                                 new Circulo(raio);
                                 System.out.println("Circulo cadastrado.");
                             } else {
@@ -78,19 +88,13 @@ public class Main {
                             lado[1] = sc.nextDouble();
                             System.out.println("Informe o lado C:");
                             lado[2] = sc.nextDouble();
-                            Triangulo novoTriangulo = new Triangulo(lado[0], lado[1], lado[2]);
-                            if (novoTriangulo.verificaTriangulo()) {
-                                String tipo = Triangulo.tipoTriangulo(lado[0], lado[1], lado[2]);
-                                if (tipo == "Equilátero") {
-                                    Equilatero novoEquilatero = new Equilatero(lado[0], lado[1], lado[2]);
-                                    Formas.adicionarForma(novoEquilatero);
-                                } else if (tipo == "Isósceles") {
-                                    Isosceles novoIsosceles = new Isosceles(lado[0], lado[1], lado[2]);
-                                    Formas.adicionarForma(novoIsosceles);
-                                } else {
-                                    Escaleno novoEscaleno = new Escaleno(lado[0], lado[1], lado[2]);
-                                    Formas.adicionarForma(novoEscaleno);
-                                }
+                            //Triangulo novoTriangulo = new Triangulo(lado[0], lado[1], lado[2]);
+                            if (Triangulo.verificaTriangulo(lado[0], lado[1], lado[2])) {
+                                /*Vou instanciar um objeto que será um dos 3 tipos de triangulo
+                                  numa "variavel" triangulo, então não é um objeto instanciado
+                                 */
+                                Triangulo triangulo = Triangulo.tipoTriangulo(lado[0], lado[1], lado[2]);
+                                Formas.adicionarForma(triangulo);
                                 System.out.println("Triângulo cadastrado.");
                             } else {
                                 System.out.println("Esses números não formam um triângulo válido.");
@@ -101,20 +105,19 @@ public class Main {
                             double ladoA = sc.nextDouble();
                             System.out.println("Informe o lado B: ");
                             double ladoB = sc.nextDouble();
-                            Retangulo novoRetangulo = new Retangulo(ladoA, ladoB);
-                            if (novoRetangulo.verificaRetangulo()) {
+                            if (ladoA > 0 && ladoB > 0) {
+                                new Retangulo(ladoA, ladoB);
                                 System.out.println("Retângulo cadastrado.");
-                                Formas.adicionarForma(novoRetangulo);
                             } else {
                                 System.out.println("Esses números não formam um retângulo válido.");
                             }
                             break;
                         case 4:
                             System.out.println("Informe o lado do quadrado: ");
-                            Quadrado novoQuadrado = new Quadrado(sc.nextDouble());
-                            if (novoQuadrado.verificaQuadrado()) {
+                            double ladoQuadrado = sc.nextDouble();
+                            if (ladoQuadrado > 0) {
+                                new Quadrado(ladoQuadrado);
                                 System.out.println("Quadrado cadastrado.");
-                                Formas.adicionarForma(novoQuadrado);
                             } else {
                                 System.out.println("Esse número não forma um quadrado válido.");
                             }
@@ -139,22 +142,19 @@ public class Main {
                     opcao = sc.nextInt();
                     switch (opcao) {
                         case 1:
-                            System.out.println();
+                            Formas.mostrarCirculos();
                             break;
                         case 2:
-                            System.out.println();
-                            System.out.println();
-                            System.out.println();
+                            Formas.mostrarTriangulos();
                             break;
                         case 3:
-                            System.out.println();
+                            Formas.mostrarRetangulos();
                             break;
                         case 4:
-                            System.out.println();
+                            Formas.mostrarQuadrados();
                             break;
                         case 5:
-                            mostrarLista();
-
+                            Formas.mostrarTodos();
                             break;
                         case 6:
                             System.out.println("Voltando...\n");
@@ -178,19 +178,4 @@ public class Main {
         } while (true);
     }
 
-    private static void mostrarLista() {
-     //   Formas.lista.add(Quadrado.getQuadrados());
-       // Formas.lista.add(Circulo.getCirculos());
-        //Formas.lista.add(Retangulo.getRetangulos());
-        //Formas.lista.add(Isosceles.getIsosceles());
-        //Formas.lista.add(Escaleno.getEscalenos());
-        //Formas.lista.add(Equilatero.getEquilateros());
-       // System.out.println(Formas.lista);
-        //Formas.lista.remove(Quadrado.getQuadrados());
-       // Formas.lista.remove(Circulo.getCirculos());
-        //Formas.lista.remove(Retangulo.getRetangulos());
-        //Formas.lista.remove(Isosceles.getIsosceles());
-        //Formas.lista.remove(Escaleno.getEscalenos());
-        //Formas.lista.remove(Equilatero.getEquilateros());
-    }
 }

@@ -6,8 +6,9 @@ public class Quadrado extends Formas {
 
     public Quadrado(double lado) {
         this.lado = lado;
-        this.setPerimetro(this.lado * 4);
-        this.setArea(this.lado * this.lado);
+        this.setPerimetro(calculaPerimetro());
+        this.setArea(calculaArea());
+        Formas.adicionarForma(this);
     }
 
 
@@ -27,4 +28,13 @@ public class Quadrado extends Formas {
 
     }
 
+    @Override
+    public double calculaArea() {
+        return this.lado * this.lado;
+    }
+
+    @Override
+    public double calculaPerimetro() {
+        return this.lado * 4;
+    }
 }

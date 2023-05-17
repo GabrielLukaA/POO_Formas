@@ -18,14 +18,15 @@ public class Circulo extends Formas {
         return false;
     }
 
-    private double calculaArea() {
+    @Override
+    public double calculaArea() {
         return 3.14 * (this.raio * this.raio);
     }
 
-    private double calculaPerimetro() {
-        return 3.14 * (raio*2);
+    @Override
+    public double calculaPerimetro() {
+        return 3.14 * (raio * 2);
     }
-
 
 
     @Override
@@ -34,6 +35,6 @@ public class Circulo extends Formas {
                 "Raio: " + raio + "\n" +
                 "Área: " + getArea() + "\n" +
                 "Perimetro: " + getPerimetro() + "\n" +
-                "Diametro: " + raio*2 + "\n\n";
+                "Diametro: " + raio * 2 + "\n\n";
     }
 }

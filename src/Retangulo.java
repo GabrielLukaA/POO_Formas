@@ -9,6 +9,7 @@ public class Retangulo extends Formas {
         this.ladoB = ladoB;
         this.setPerimetro(calculaPerimetro());
         this.setArea(calculaArea());
+        Formas.adicionarForma(this);
     }
 
     public boolean verificaRetangulo() {
@@ -18,11 +19,13 @@ public class Retangulo extends Formas {
         return false;
     }
 
-    private double calculaArea() {
+    @Override
+    public double calculaArea() {
         return this.ladoA * this.ladoB;
     }
 
-    private double calculaPerimetro() {
+    @Override
+    public double calculaPerimetro() {
         return 2 * (this.ladoA + this.ladoB);
     }
 
