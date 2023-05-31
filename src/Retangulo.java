@@ -12,6 +12,17 @@ public class Retangulo extends Formas {
         Formas.adicionarForma(this);
     }
 
+    public static String mostrarObjetos() {
+        String objetos = "";
+        for (Formas forma : getLista()) {
+            if (forma instanceof Retangulo) {
+                objetos += forma;
+            }
+        }
+        return objetos;
+
+    }
+
     public boolean verificaRetangulo() {
         if (this.ladoA > 0 && this.ladoB > 0) {
             return true;
@@ -48,10 +59,10 @@ public class Retangulo extends Formas {
 
     @Override
     public String toString() {
-        return "Retangulo: " + "\n" +
+        return "Retângulo: " + "\n" +
                 "Lado A: " + ladoA + "\n" +
                 "Lado B: " + ladoB + "\n" +
                 "Área: " + getArea() + "\n" +
-                "Perimetro: " + getPerimetro() + "\n\n";
+                "Perímetro: " + getPerimetro() + "\n\n";
     }
 }

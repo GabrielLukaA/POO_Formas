@@ -142,19 +142,19 @@ public class Main {
                     opcao = sc.nextInt();
                     switch (opcao) {
                         case 1:
-                            Formas.mostrarCirculos();
+                            System.out.println(Circulo.mostrarObjetos());
                             break;
                         case 2:
-                            Formas.mostrarTriangulos();
+                            System.out.println(Triangulo.mostrarObjetos());
                             break;
                         case 3:
-                            Formas.mostrarRetangulos();
+                            System.out.println(Retangulo.mostrarObjetos());
                             break;
                         case 4:
-                            Formas.mostrarQuadrados();
+                            System.out.println(Quadrado.mostrarObjetos());
                             break;
                         case 5:
-                            Formas.mostrarTodos();
+                            System.out.println(Formas.mostrarObjetos());
                             break;
                         case 6:
                             System.out.println("Voltando...\n");

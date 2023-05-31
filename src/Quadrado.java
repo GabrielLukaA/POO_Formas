@@ -23,7 +23,7 @@ public class Quadrado extends Formas {
     public String toString() {
         return "Quadrado: " + "\n" +
                 "Área: " + getArea() + "\n" +
-                "Perimetro: " + getPerimetro() + "\n" +
+                "Perímetro: " + getPerimetro() + "\n" +
                 "Lado: " + lado + "\n\n";
 
     }
@@ -36,5 +36,17 @@ public class Quadrado extends Formas {
     @Override
     public double calculaPerimetro() {
         return this.lado * 4;
+    }
+
+
+    public static String mostrarObjetos() {
+        String objetos = "";
+        for (Formas forma : getLista()) {
+            if (forma instanceof Quadrado) {
+                objetos += forma;
+            }
+        }
+        return objetos;
+
     }
 }

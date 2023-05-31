@@ -34,7 +34,7 @@ public class Isosceles extends Triangulo {
 
     @Override
     public String toString() {
-        return "Triangulo Isósceles: \n" +
+        return "Triângulo Isósceles: \n" +
                 "Lado A: " + getLadoA() + "\n" +
                 "Lado B: " + getLadoB() + "\n" +
                 "Lado C: " + getLadoC() + "\n" +

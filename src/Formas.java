@@ -6,46 +6,20 @@ public abstract class Formas {
     private double area;
     private double perimetro;
 
-    public static void mostrarTodos() {
-        for (Formas forma : formasLista) {
-            System.out.println(forma);
+
+    public static String mostrarObjetos() {
+        String objetos = "";
+        for (Formas forma : getLista()) {
+            objetos += forma;
         }
+        return objetos;
     }
 
-    public static void mostrarQuadrados() {
-        for (Formas forma : formasLista) {
-            if (forma instanceof Quadrado) {
-                System.out.println(forma);
-            }
-        }
-    }
-
-    public static void mostrarCirculos() {
-        for (Formas forma : formasLista) {
-            if (forma instanceof Circulo) {
-                System.out.println(forma);
-            }
-        }
-    }
-
-    public static void mostrarRetangulos() {
-        for (Formas forma : formasLista) {
-            if (forma instanceof Retangulo) {
-                System.out.println(forma);
-            }
-        }
-    }
-
-    public static void mostrarTriangulos() {
-        for (Formas forma : formasLista) {
-            if (forma instanceof Triangulo) {
-                System.out.println(forma);
-            }
-        }
-    }
+    //objeto que tem que chamar, porque é caracteristíca do objeto
 
     public static void adicionarForma(Formas forma) {
         formasLista.add(forma);
+        //aplicar usando this(no parameter)
     }
 
     public double getArea() {

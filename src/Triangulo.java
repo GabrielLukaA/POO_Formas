@@ -7,6 +7,17 @@ public abstract class Triangulo extends Formas {
     private double ladoC;
     private String tipo;
 
+    public static String mostrarObjetos() {
+        String objetos = "";
+        for (Formas forma : getLista()) {
+            if (forma instanceof Triangulo) {
+                objetos += forma;
+            }
+        }
+        return objetos;
+
+    }
+
     public Triangulo(double ladoA, double ladoB, double ladoC) {
         this.ladoA = ladoA;
         this.ladoB = ladoB;
@@ -33,12 +44,12 @@ public abstract class Triangulo extends Formas {
 
     @Override
     public String toString() {
-        return "Triangulo " + getTipo() + ":\n" +
+        return "Triângulo " + getTipo() + ":\n" +
                 "lado A: " + ladoA + "\n" +
                 "lado B: " + ladoB + "\n" +
                 "lado C: " + ladoC + "\n" +
                 "Area: " + getArea() + "\n" +
-                "Perimetro: " + getPerimetro() + "\n\n";
+                "Perímetro: " + getPerimetro() + "\n\n";
     }
 
     public double getLadoA() {

@@ -11,6 +11,17 @@ public class Circulo extends Formas {
         Formas.adicionarForma(this);
     }
 
+    public static String mostrarObjetos() {
+        String objetos = "";
+        for (Formas forma : getLista()) {
+            if (forma instanceof Circulo) {
+                objetos += forma;
+            }
+        }
+        return objetos;
+
+    }
+
     public boolean verificaCirculo() {
         if (this.raio > 0) {
             return true;
@@ -34,7 +45,7 @@ public class Circulo extends Formas {
         return "Circulo: " + "\n" +
                 "Raio: " + raio + "\n" +
                 "Área: " + getArea() + "\n" +
-                "Perimetro: " + getPerimetro() + "\n" +
+                "Perímetro: " + getPerimetro() + "\n" +
                 "Diametro: " + raio * 2 + "\n\n";
     }
 }
