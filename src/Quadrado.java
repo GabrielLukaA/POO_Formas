@@ -5,27 +5,8 @@ public class Quadrado extends Formas {
     private double lado;
 
     public Quadrado(double lado) {
+        super(4);
         this.lado = lado;
-        this.setPerimetro(calculaPerimetro());
-        this.setArea(calculaArea());
-        Formas.adicionarForma(this);
-    }
-
-
-    public boolean verificaQuadrado() {
-        if (this.lado > 0) {
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public String toString() {
-        return "Quadrado: " + "\n" +
-                "Área: " + getArea() + "\n" +
-                "Perímetro: " + getPerimetro() + "\n" +
-                "Lado: " + lado + "\n\n";
-
     }
 
     @Override
@@ -38,15 +19,12 @@ public class Quadrado extends Formas {
         return this.lado * 4;
     }
 
-
-    public static String mostrarObjetos() {
-        String objetos = "";
-        for (Formas forma : getLista()) {
-            if (forma instanceof Quadrado) {
-                objetos += forma;
-            }
-        }
-        return objetos;
+    @Override
+    public String toString() {
+        return "Quadrado: " + "\n" +
+                "Área: " + calculaArea()+ "\n" +
+                "Perímetro: " + calculaArea() + "\n" +
+                "Lado: " + this.lado + "\n\n";
 
     }
 }

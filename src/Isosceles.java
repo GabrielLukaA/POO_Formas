@@ -1,14 +1,10 @@
 import java.util.ArrayList;
 
 public class Isosceles extends Triangulo {
-    private double altura;
 
     public Isosceles(double a, double b, double c) {
         super(a, b, c);
         this.setTipo("Isósceles");
-        this.setArea(calculaArea());
-        this.setPerimetro(calculaPerimetro());
-        this.altura = calculaAltura();
     }
 
     @Override
@@ -38,8 +34,8 @@ public class Isosceles extends Triangulo {
                 "Lado A: " + getLadoA() + "\n" +
                 "Lado B: " + getLadoB() + "\n" +
                 "Lado C: " + getLadoC() + "\n" +
-                "Altura: " + altura + "\n" +
-                "Area: " + getArea() + "\n" +
-                "Perimetro: " + getPerimetro() + "\n\n";
+                "Altura: " + calculaAltura() + "\n" +
+                "Area: " + calculaArea() + "\n" +
+                "Perimetro: " + calculaPerimetro() + "\n\n";
     }
 }

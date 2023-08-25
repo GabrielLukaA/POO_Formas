@@ -5,28 +5,8 @@ public class Circulo extends Formas {
     private double raio;
 
     public Circulo(double raio) {
+        super(1);
         this.raio = raio;
-        this.setArea(calculaArea());
-        this.setPerimetro(calculaPerimetro());
-        Formas.adicionarForma(this);
-    }
-
-    public static String mostrarObjetos() {
-        String objetos = "";
-        for (Formas forma : getLista()) {
-            if (forma instanceof Circulo) {
-                objetos += forma;
-            }
-        }
-        return objetos;
-
-    }
-
-    public boolean verificaCirculo() {
-        if (this.raio > 0) {
-            return true;
-        }
-        return false;
     }
 
     @Override
@@ -36,16 +16,15 @@ public class Circulo extends Formas {
 
     @Override
     public double calculaPerimetro() {
-        return 3.14 * (raio * 2);
+        return 3.14 * (this.raio * 2);
     }
-
 
     @Override
     public String toString() {
         return "Circulo: " + "\n" +
-                "Raio: " + raio + "\n" +
-                "Área: " + getArea() + "\n" +
-                "Perímetro: " + getPerimetro() + "\n" +
-                "Diametro: " + raio * 2 + "\n\n";
+                "Raio: " + this.raio + "\n" +
+                "Área: " + calculaArea() + "\n" +
+                "Perímetro: " + calculaPerimetro() + "\n" +
+                "Diametro: " + this.raio * 2 + "\n\n";
     }
 }

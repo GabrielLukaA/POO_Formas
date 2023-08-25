@@ -2,28 +2,18 @@ import java.util.Scanner;
 
 public class Main {
     private static Scanner sc = new Scanner(System.in);
-    private static int i = 0;
-    static Professor professor = new Professor(123, "Romário");
 
+    static Professor professor = new Professor(123, "Romário");
 
     public static void main(String[] args) {
 
-
-        // Formas forma2 = new Quadrado(3); == RUIM
-        //Quadrado forma3 = new Quadrado(4);
-
-        // forma2.calculaArea();
-        //forma3.calculaArea();
-
-        /*Instanciar um objeto forma geométrica na variável Quadrado
-        Quadrado quadrado = (Quadrado) forma2;
-         */
         do {
             login(professor);
         } while (true);
     }
 
     private static void login(Professor professor) {
+        int i = 0;
         do {
 
             System.out.println("""
@@ -37,17 +27,17 @@ public class Main {
             } else {
 
                 i++;
-                System.out.println("Senha incorreta, lhe restam " + (3 - i) + " chances.");
                 if (i == 3) {
+                    System.out.println("Acabaram as chances.");
                     System.exit(0);
                 }
+                System.out.println("Senha incorreta, lhe restam " + (3 - i) + " chances.");
             }
-        } while (i < 2);
+        } while (i < 3);
     }
 
     private static void menu() {
         do {
-
 
             System.out.println("""
                     Olá Professor, o que você deseja?
@@ -80,26 +70,27 @@ public class Main {
                                 System.out.println("O raio é inferior ou igual a 0.");
                             }
                             break;
+
                         case 2:
-                            double[] lado = new double[3];
+                            double[] lados = new double[3];
                             System.out.println("Informe o lado A:");
-                            lado[0] = sc.nextDouble();
+                            lados[0] = sc.nextDouble();
                             System.out.println("Informe o lado B:");
-                            lado[1] = sc.nextDouble();
+                            lados[1] = sc.nextDouble();
                             System.out.println("Informe o lado C:");
-                            lado[2] = sc.nextDouble();
-                            //Triangulo novoTriangulo = new Triangulo(lado[0], lado[1], lado[2]);
-                            if (Triangulo.verificaTriangulo(lado[0], lado[1], lado[2])) {
+                            lados[2] = sc.nextDouble();
+                            //Triangulo novoTriangulo = new Triangulo(lados[0], lados[1], lados[2]);
+                            if (Triangulo.verificaTriangulo(lados[0], lados[1], lados[2])) {
                                 /*Vou instanciar um objeto que será um dos 3 tipos de triangulo
                                   numa "variavel" triangulo, então não é um objeto instanciado
                                  */
-                                Triangulo triangulo = Triangulo.tipoTriangulo(lado[0], lado[1], lado[2]);
-                                Formas.adicionarForma(triangulo);
+                                Triangulo triangulo = Triangulo.tipoTriangulo(lados[0], lados[1], lados[2]);
                                 System.out.println("Triângulo cadastrado.");
                             } else {
                                 System.out.println("Esses números não formam um triângulo válido.");
                             }
                             break;
+
                         case 3:
                             System.out.println("Informe o lado A: ");
                             double ladoA = sc.nextDouble();
@@ -112,6 +103,7 @@ public class Main {
                                 System.out.println("Esses números não formam um retângulo válido.");
                             }
                             break;
+
                         case 4:
                             System.out.println("Informe o lado do quadrado: ");
                             double ladoQuadrado = sc.nextDouble();
@@ -128,6 +120,7 @@ public class Main {
 
                     }
                     break;
+
                 case 2:
                     System.out.println("""
                             Qual forma você deseja Listar?
@@ -140,30 +133,20 @@ public class Main {
                             6 - Voltar ao menu principal    
                             """);
                     opcao = sc.nextInt();
-                    switch (opcao) {
-                        case 1:
-                            System.out.println(Circulo.mostrarObjetos());
-                            break;
-                        case 2:
-                            System.out.println(Triangulo.mostrarObjetos());
-                            break;
-                        case 3:
-                            System.out.println(Retangulo.mostrarObjetos());
-                            break;
-                        case 4:
-                            System.out.println(Quadrado.mostrarObjetos());
-                            break;
-                        case 5:
-                            System.out.println(Formas.mostrarObjetos());
-                            break;
-                        case 6:
-                            System.out.println("Voltando...\n");
-                            break;
-                        default:
-                            System.out.println("Numero inválido");
-                            break;
+
+                    if (opcao > 6 || opcao < 0) {
+                        System.out.println("Número inválido.\n");
+                    } else {
+                        switch (opcao) {
+                            case 5 -> System.out.println(Formas.mostrarObjetos());
+                            case 6 -> System.out.println("Voltando...\n");
+                            default -> {
+                                System.out.println(Formas.mostrarObjetosFiltrados(opcao));
+                            }
+                        }
                     }
                     break;
+
                 case 3:
                     System.out.println("Informe sua senha: ");
                     if (professor.getSenha() == sc.nextInt()) {

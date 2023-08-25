@@ -5,29 +5,9 @@ public class Retangulo extends Formas {
     private double ladoB;
 
     public Retangulo(double ladoA, double ladoB) {
+        super(3);
         this.ladoA = ladoA;
         this.ladoB = ladoB;
-        this.setPerimetro(calculaPerimetro());
-        this.setArea(calculaArea());
-        Formas.adicionarForma(this);
-    }
-
-    public static String mostrarObjetos() {
-        String objetos = "";
-        for (Formas forma : getLista()) {
-            if (forma instanceof Retangulo) {
-                objetos += forma;
-            }
-        }
-        return objetos;
-
-    }
-
-    public boolean verificaRetangulo() {
-        if (this.ladoA > 0 && this.ladoB > 0) {
-            return true;
-        }
-        return false;
     }
 
     @Override
@@ -40,29 +20,12 @@ public class Retangulo extends Formas {
         return 2 * (this.ladoA + this.ladoB);
     }
 
-    public double getLadoB() {
-        return ladoB;
-    }
-
-    public void setLadoB(double ladoB) {
-        this.ladoB = ladoB;
-    }
-
-    public double getLadoA() {
-        return ladoA;
-    }
-
-    public void setLadoA(double ladoA) {
-        this.ladoA = ladoA;
-    }
-
-
     @Override
     public String toString() {
         return "Retângulo: " + "\n" +
-                "Lado A: " + ladoA + "\n" +
-                "Lado B: " + ladoB + "\n" +
-                "Área: " + getArea() + "\n" +
-                "Perímetro: " + getPerimetro() + "\n\n";
+                "Lado A: " + this.ladoA + "\n" +
+                "Lado B: " + this.ladoB + "\n" +
+                "Área: " + calculaArea() + "\n" +
+                "Perímetro: " + calculaPerimetro() + "\n\n";
     }
 }
